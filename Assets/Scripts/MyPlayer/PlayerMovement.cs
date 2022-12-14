@@ -44,6 +44,16 @@ public class PlayerMovement : MonoBehaviour
 
         velocityY += -gravity * Time.deltaTime;
 
+        if (Input.GetButton("Run"))
+        {
+            walkSpeed = 20;
+
+        }
+        else if(Input.GetButtonUp("Run"))
+        {
+            walkSpeed = 10;
+        }
+
         Vector3 velocity = (transform.forward * currentDir.x + transform.right * currentDir.y) * walkSpeed + transform.up * velocityY;
 
         controller.Move(velocity * Time.deltaTime);
@@ -103,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
 
         controller.slopeLimit = 45.0f;
     }
+
 }
     //Vector3 startPos;
     //float heightOfKnock;
